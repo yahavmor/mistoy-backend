@@ -3,14 +3,14 @@ import { config } from "../config/index.js";
 import dotenv from 'dotenv'
 dotenv.config()
 
-console.log('DB URL:', config.dbURL)
+console.log('DB:', config.dbName)
 
 export const client = new MongoClient(config.dbURL);
 
 export async function connectDB() {
   try {
     await client.connect();
-    console.log("Connected to DB:", config.dbURL);
+    console.log("Connected to DB:", config.dbName);
   } catch (err) {
     console.error("DB connection error:", err);
     throw err;
